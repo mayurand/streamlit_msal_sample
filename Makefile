@@ -8,5 +8,5 @@ docker_build: ## build docker image
 
 
 docker_run: ## run docker image
-	 docker run -p 8501:8501 streamlit
+	 docker run -p 8080:8080 streamlit
 .PHONY: docker_run
