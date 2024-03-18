@@ -14,8 +14,9 @@ value = msal_authentication(
         "cacheLocation": "sessionStorage",
         "storeAuthStateInCookie": False
     },
-    login_request={
-        "scopes": ["aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee/.default"]
-    },
-    key=1)
+    # login_request={
+    #     "scopes": ["aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee/.default"]
+    # },
+    # key=1
+    )
 st.write("Received", value)
