@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import datetime as date
-from src.components.auth import authenticate_user
+from app.src.components.auth import authenticate_user
 
 if authenticate_user():
     st.title("Hello :red[streamlit] :100: :the_horns:")
