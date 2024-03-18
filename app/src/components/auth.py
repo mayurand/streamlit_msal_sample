@@ -1,5 +1,6 @@
 import streamlit as st
 from msal_streamlit_authentication import msal_authentication
+from loguru import logger
 
 # def creds_entered():
     
@@ -9,6 +10,7 @@ from msal_streamlit_authentication import msal_authentication
 def authenticate_user():
     if "authenticated" not in st.session_state or st.session_state["authenticated"] == False:
         # st.button("Login with Azure", on_click=creds_entered)
+        logger.debug("Start auth")
         st.subheader("Please login using Single Sign On")
         value = msal_authentication(
         auth={
@@ -23,13 +25,16 @@ def authenticate_user():
         },
         )
         if value is not None:
+            logger.debug("Value is not set")
             st.session_state["authenticated"] = True    
             st.write("Received", value)
             return True  
         else:
+            logger.debug("Value is set")
             st.session_state["authenticated"] = False
             st.error("Unable to login")
-    else:     
+    else:
+        logger.debug("Returning False")     
         return False
     
     
