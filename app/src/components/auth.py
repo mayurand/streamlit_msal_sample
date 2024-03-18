@@ -17,7 +17,7 @@ def authenticate_user():
             "clientId": "95d75130-08e9-4d56-935f-1cc063a81177",
             "authority": "https://login.microsoftonline.com/64dc69e4-d083-49fc-9569-ebece1dd1408",
             # "redirectUri": "https://streamlit-auth-package-streamlit.apps.cluster-srkhk.dynamic.redhatworkshops.io",
-            "redirectUri": "http://localhost:8501/Home",
+            "redirectUri": "http://localhost:8501",
             "postLogoutRedirectUri": "/"
         },
         cache={
