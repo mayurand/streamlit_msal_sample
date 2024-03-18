@@ -11,20 +11,22 @@ def authenticate_user():
     if "authenticated" not in st.session_state:
         # st.button("Login with Azure", on_click=creds_entered)
         logger.debug(f"Start auth:")
-        st.subheader("Please login using Single Sign On")
-        value = msal_authentication(
-        auth={
-            "clientId": "95d75130-08e9-4d56-935f-1cc063a81177",
-            "authority": "https://login.microsoftonline.com/64dc69e4-d083-49fc-9569-ebece1dd1408",
-            # "redirectUri": "https://streamlit-auth-package-streamlit.apps.cluster-srkhk.dynamic.redhatworkshops.io",
-            "redirectUri": "http://localhost:8501",
-            "postLogoutRedirectUri": "/"
-        },
-        cache={
-            "cacheLocation": "sessionStorage",
-            "storeAuthStateInCookie": False
-        },
-        )
+        with st.sidebar:
+            st.subheader("Please login using Single Sign On")
+
+            value = msal_authentication(
+            auth={
+                "clientId": "95d75130-08e9-4d56-935f-1cc063a81177",
+                "authority": "https://login.microsoftonline.com/64dc69e4-d083-49fc-9569-ebece1dd1408",
+                # "redirectUri": "https://streamlit-auth-package-streamlit.apps.cluster-srkhk.dynamic.redhatworkshops.io",
+                "redirectUri": "http://localhost:8501",
+                "postLogoutRedirectUri": "/"
+            },
+            cache={
+                "cacheLocation": "sessionStorage",
+                "storeAuthStateInCookie": False
+            },
+            )
         if value is not None:
             st.session_state["authenticated"] = True
             logger.debug(f"Value is going to be set: {st.session_state['authenticated']}")    
