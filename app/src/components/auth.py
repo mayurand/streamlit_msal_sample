@@ -7,7 +7,6 @@ from msal_streamlit_authentication import msal_authentication
 
 
 def authenticate_user():
-    value = None
     if "authenticated" not in st.session_state:
         # st.button("Login with Azure", on_click=creds_entered)
         value = msal_authentication(
