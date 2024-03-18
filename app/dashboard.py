@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import datetime as date
+from datetime import date
 from app.src.components.auth import authenticate_user
 
 if authenticate_user():
