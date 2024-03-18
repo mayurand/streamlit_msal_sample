@@ -1,9 +1,11 @@
 import streamlit as st
 import pandas as pd
 from datetime import date
-from app.src.components.auth import authenticate_user
+from app.src.components.auth import authenticate_user, authorize_user
 
-if authenticate_user():
+authenticate_user()
+
+if authorize_user():
     st.title("Hello :red[streamlit] :100: :the_horns:")
 
     st.header("Header :anchor:")
