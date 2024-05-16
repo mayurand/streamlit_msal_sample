@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from datetime import date
-from app.src.components.auth import authenticate_user, authorize_user
+from src.components.auth import authenticate_user, authorize_user
 
 authenticate_user()
 
