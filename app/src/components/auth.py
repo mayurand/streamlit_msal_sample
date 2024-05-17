@@ -21,26 +21,22 @@ def authenticate_user():
     
     # https://axioenergy.b2clogin.com/axioenergy.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_signup_signin&client_id=5abc2de9-a633-47b8-9f47-b098fe850784&nonce=defaultNonce&redirect_uri=http%3A%2F%2Flocalhost%3A8051%2F&scope=openid&response_type=code&prompt=login
 
+
     login_token = msal_authentication(
             auth={
-                "authority": "https://axioenergy.b2clogin.com/axioenergy.onmicrosoft.com",
-                "p": "B2C_1_signup_signin",
+                "authority": "https://axioenergy.b2clogin.com/axioenergy.onmicrosoft.com/B2C_1_signup_signin",
                 "clientId": "485be2c3-e1a1-40a1-bd9a-c44a1e1c59e0",
                 "knownAuthorities": ["https://axioenergy.b2clogin.com/axioenergy.onmicrosoft.com"],
-                "redirectUri": "http://localhost:8501",
-                "postLogoutRedirectUri": "http://localhost:8501"
+                "redirectUri": "http://localhost:5173",
             },
             cache={
                 'cacheLocation': 'sessionStorage',
                 'storeAuthStateInCookie': False
             },
-            login_request={
-                "scopes": ["email","openid"]
-            },
-            logout_request={
-            },
             key=1
     )
+
+    # http://localhost:5173/#state=   
 
 
     st.write("Recevied login token:", login_token)
